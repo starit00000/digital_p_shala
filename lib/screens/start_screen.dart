@@ -27,7 +27,7 @@ class _StartScreenState extends State<StartScreen> {
                 gradients: [
                   [Colors.indigo, Colors.indigo]
                 ],
-                durations: [6000],
+                durations: [60000],
                 heightPercentages: [0.20],
                 blur: MaskFilter.blur(BlurStyle.solid, 2),
                 //gradientBegin: Alignment.bottomLeft,
@@ -159,8 +159,7 @@ class _StartScreenState extends State<StartScreen> {
                 ),
               ],
             ),
-          ],
-        ),
+          ],),
       ),
     );
   }
