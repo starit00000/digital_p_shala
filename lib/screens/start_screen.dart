@@ -1,3 +1,4 @@
+import 'package:digital_p_shala/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -67,7 +68,7 @@ class _StartScreenState extends State<StartScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    print('Teacher');
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Registration('teacher')));
                   },
                   child: ClipPath(
                     clipper: TriangleClipper(),

@@ -1,3 +1,4 @@
+import 'package:digital_p_shala/screens/registration_screen.dart';
 import 'package:digital_p_shala/screens/start_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: StartScreen(),
+      home: Registration('teacher'),
     );
   }
 }
