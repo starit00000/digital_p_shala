@@ -143,7 +143,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       onTap: () {
                         // forgot password will be implemented after final decision
- //dff
                         print('forgot');
                         //_navigateToForgotPasswordScreen();
                       },
