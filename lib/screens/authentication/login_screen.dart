@@ -1,11 +1,13 @@
 import 'package:digital_p_shala/clippers/my_clipper.dart';
 import 'package:digital_p_shala/screens/authentication/forgot_password.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LoginScreen extends StatefulWidget {
   final String type;
+
   LoginScreen(this.type);
 
   @override
@@ -13,6 +15,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -65,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   alignment: Alignment.center,
                   padding: EdgeInsets.only(left: 30, right: 30),
                   child: TextField(
+                    controller: _emailController,
                     style: TextStyle(color: Colors.white),
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
@@ -94,6 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   alignment: Alignment.center,
                   padding: EdgeInsets.only(left: 30, right: 30),
                   child: TextField(
+                    controller: _passwordController,
                     style: TextStyle(color: Colors.white),
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
@@ -129,11 +136,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     GestureDetector(
                       child: Text(
                         'Reset.',
-                        style: TextStyle(color: Colors.orangeAccent[200], fontSize: 16,),
+                        style: TextStyle(
+                          color: Colors.orangeAccent[200],
+                          fontSize: 16,
+                        ),
                       ),
-                      onTap: (){
+                      onTap: () {
+                        // forgot password will be implemented after final decision
+
                         print('forgot');
-                        _navigateToForgotPasswordScreen();
+                        //_navigateToForgotPasswordScreen();
                       },
                     ),
                   ]),
@@ -154,8 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
-                      //TODO perform Login Button click
-                      // validate mail and then perform login
+
                     },
                   ),
                 )
@@ -166,6 +177,9 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _navigateToForgotPasswordScreen() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ForgotPassword()));
   }
+
+
 }
