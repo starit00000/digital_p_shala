@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       onTap: () {
                         // forgot password will be implemented after final decision
-
+ //dff
                         print('forgot');
                         //_navigateToForgotPasswordScreen();
                       },
@@ -166,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
-
+                      _logIn();
                     },
                   ),
                 )
@@ -181,5 +181,20 @@ class _LoginScreenState extends State<LoginScreen> {
         context, MaterialPageRoute(builder: (context) => ForgotPassword()));
   }
 
+  void _logIn() {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+    if(email.isEmpty || password.isEmpty) {
+      //show error as field is empty
+      print('fields are empty');
+    }else{
+       bool isValidEmail = EmailValidator.validate(email);
+       if(isValidEmail){
+         print('Email is valid');
+      }else{
+         print('Email is not valid');
+      }
+    }
 
+  }
 }
