@@ -1,18 +1,18 @@
 import 'package:digital_p_shala/clippers/my_clipper.dart';
+import 'package:digital_p_shala/screens/authentication/forgot_password.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Registration extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   final String type;
-
-  Registration(this.type);
+  LoginScreen(this.type);
 
   @override
-  _RegistrationState createState() => _RegistrationState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _RegistrationState extends State<Registration> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -132,7 +132,8 @@ class _RegistrationState extends State<Registration> {
                         style: TextStyle(color: Colors.orangeAccent[200], fontSize: 16,),
                       ),
                       onTap: (){
-                        // TODO implement forgot password
+                        print('forgot');
+                        _navigateToForgotPasswordScreen();
                       },
                     ),
                   ]),
@@ -144,7 +145,7 @@ class _RegistrationState extends State<Registration> {
                     highlightColor: Colors.indigo[800],
                     highlightedBorderColor: Colors.indigo,
                     shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(15.0)),
+                        borderRadius: new BorderRadius.circular(10.0)),
                     borderSide: BorderSide(
                       color: Colors.white,
                     ),
@@ -162,5 +163,9 @@ class _RegistrationState extends State<Registration> {
             )
           ],
         ));
+  }
+
+  void _navigateToForgotPasswordScreen() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword()));
   }
 }

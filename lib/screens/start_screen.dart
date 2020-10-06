@@ -1,4 +1,4 @@
-import 'package:digital_p_shala/screens/registration_screen.dart';
+import 'file:///C:/Users/PCFIX/AndroidStudioProjects/digital_p_shala/lib/screens/authentication/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -28,27 +28,12 @@ class _StartScreenState extends State<StartScreen> {
                 gradients: [
                   [Colors.indigo, Colors.indigo]
                 ],
-                durations: [60000],
+                durations: [40000],
                 heightPercentages: [0.20],
                 blur: MaskFilter.blur(BlurStyle.solid, 2),
-                //gradientBegin: Alignment.bottomLeft,
-                //gradientEnd: Alignment.topRight,
               ),
-              /*colors: [
-            Colors.white70,
-            Colors.white54,
-            Colors.white30,
-            Colors.white24,
-          ],
-          durations: [
-            32000,
-            21000,
-            18000,
-            5000,
-          ],*/
               waveAmplitude: 0,
               waveFrequency: 4,
-              //heightPercentages: [0.25, 0.26, 0.28, 0.31],
               size: Size(
                 double.infinity,
                 double.infinity,
@@ -68,7 +53,7 @@ class _StartScreenState extends State<StartScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Registration('teacher')));
+                    _navigateToLoginScreen('teacher');
                   },
                   child: ClipPath(
                     clipper: TriangleClipper(),
@@ -99,7 +84,7 @@ class _StartScreenState extends State<StartScreen> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => print('Student'),
+                  onTap: () => _navigateToLoginScreen('student'),
                   child: ClipPath(
                     clipper: TriangleClipper(),
                     child: Container(
@@ -129,7 +114,7 @@ class _StartScreenState extends State<StartScreen> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () => print('Parents'),
+                  onTap: () => _navigateToLoginScreen('parents'),
                   child: ClipPath(
                     clipper: TriangleClipper(),
                     child: Container(
@@ -164,4 +149,9 @@ class _StartScreenState extends State<StartScreen> {
       ),
     );
   }
+
+  void _navigateToLoginScreen(String type){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(type)));
+  }
+
 }
